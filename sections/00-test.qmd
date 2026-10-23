@@ -1,0 +1,7 @@
+## Test: sub-document include
+
+This section lives in a separate file (`sections/00-test.qmd`) and is pulled into the master document at render time with the `{{< include >}}` shortcode — exactly the structure the assignment requires.
+
+```{r}
+#| label: test-addition
+1 + 1

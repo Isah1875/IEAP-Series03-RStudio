@@ -1,0 +1,54 @@
+---
+title: "Series 03 — Data wrangling and ANOVA"
+subtitle: "IEAP – RStudio"
+author: Isah Dadiga
+date: today
+toc: true
+number-sections: true
+format:
+  html:
+    theme: cosmo
+  pdf:
+    pdf-engine: typst
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Introduction
+
+This report presents the solution to the Series 03 assignment (**data wrangling and ANOVA**), produced as a Quarto notebook and fully version-controlled with Git.
+
+- **GitHub repository:** [Isah1875/IEAP-Series03-RStudio](https://github.com/Isah1875/IEAP-Series03-RStudio)
+- **Course:** IEAP – RStudio, Series 03 (Instructor: Denis Mottet)
+- **Author:** Isah Dadiga
+
+# Git workflow strategy
+
+*(to be completed later — how we used branches and commits)*
+
+# Challenges and lessons learned
+
+*(to be completed later)*
+
+# Data sources
+
+*(to be completed later — dataset description and URL)*
+
+# Scientific references
+
+*(to be completed later — references with DOIs)*
+
+# Questions
+
+{{< include sections/00-test.qmd >}}
+
+# Grading checklist
+
+- [ ] README.md complete
+- [ ] LICENSE file present
+- [ ] Master Quarto document with sub-document includes
+- [ ] PDF rendered and uploaded
+- [ ] At least one commit per question
+- [ ] Principled use of branches
