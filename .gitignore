@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto render intermediates
+*_files/
+*_cache/
+*.utf8.md
+
+# OS junk
+Thumbs.db
