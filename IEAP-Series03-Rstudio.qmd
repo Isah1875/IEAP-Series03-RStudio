@@ -8,8 +8,6 @@ number-sections: true
 format:
   html:
     theme: cosmo
-  pdf:
-    pdf-engine: typst
 execute:
   echo: true
   warning: false
