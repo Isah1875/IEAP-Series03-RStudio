@@ -13,7 +13,7 @@ execute:
   warning: false
   message: false
 ---
-
+#| label: setup#| include: falselibrary(tidyverse)
 # Introduction
 
 This report presents the solution to the Series 03 assignment (**data wrangling and ANOVA**), produced as a Quarto notebook and fully version-controlled with Git.
@@ -41,6 +41,7 @@ This report presents the solution to the Series 03 assignment (**data wrangling 
 # Questions
 
 {{< include sections/00-test.qmd >}}
+{{< include sections/01-data.qmd >}}
 
 # Grading checklist
 

@@ -1,0 +1,9 @@
+Data
+
+The dataset was loaded from Results.txt (whitespace-separated, 9 variables).
+
+#| label: load-dataresults <- read_table("data/Results.txt")
+
+#| label: data-structureglimpse(results)
+
+The dataset contains r nrow(results) observations and r ncol(results) variables, covering r n_distinct(results$SUBJ) subjects.
