@@ -14,9 +14,9 @@ execute:
   message: false
 ---
 #| label: setup#| include: falselibrary(tidyverse)
-# Introduction
+## Introduction
 
-This report presents the solution to the Series 03 assignment (**data wrangling and ANOVA**), produced as a Quarto notebook and fully version-controlled with Git.
+The present report analyzes pointing movements performed by 51 participants divided into three groups (ap, cp and pp). Each participant reached toward five target orientations (W, NW, N, NE and E), executing the movements either outward or inward, over two trials with up to three movement segments and up to three repetitions. Two dependent variables are analyzed: movement time and the number of velocity peaks, the latter reflecting how smooth the movement trajectory is. The data were loaded from the raw results file, converted to an analysis-ready format and aggregated to one mean value per subject and condition. Mixed analyses of variance were then fitted with GROUP as a between-subject factor and target orientation (ORI) and movement direction (DIR) as within-subject factors.
 
 - **GitHub repository:** [Isah1875/IEAP-Series03-RStudio](https://github.com/Isah1875/IEAP-Series03-RStudio)
 - **Course:** IEAP – RStudio, Series 03 (Instructor: Denis Mottet)
@@ -40,7 +40,6 @@ This report presents the solution to the Series 03 assignment (**data wrangling 
 
 # Questions
 
-{{< include sections/00-test.qmd >}}
 {{< include sections/01-data.qmd >}}
 {{< include sections/02-wrangling.qmd >}}
 {{< include sections/03-anova.qmd >}}
