@@ -1,0 +1,16 @@
+START
+Data wrangling
+
+The experiment involved r n_distinct(results$SUBJ) subjects divided into three groups: ap (13 subjects), cp (19 subjects) and pp (19 subjects). Each subject performed pointing movements toward r nlevels(as.factor(results$ORI)) target orientations (E, N, NE, NW, W), in an outward or inward direction, over two trials (T01–T02), with up to three movement segments (ID1–ID3) recorded in up to three repetitions (R1–R3). The raw dataset contains r nrow(results) rows and r ncol(results) variables.
+
+#| label: clean-dataresults_clean <- results %>%  mutate(    GROUP = as.factor(GROUP),    TRIAL = as.factor(TRIAL),    ORI   = as.factor(ORI),    DIR   = as.factor(DIR),    ID    = as.factor(ID),    REP   = as.factor(REP)  )tibble(  check = c("Missing values", "Duplicated rows"),  count = c(sum(is.na(results_clean)), sum(duplicated(results_clean))))
+
+The dataset contains no missing values and no duplicated rows, so all r nrow(results_clean) observations are kept for analysis.
+
+#| label: design-checkresults_clean %>% distinct(GROUP, SUBJ) %>% count(GROUP, name = "n_subjects")results_clean %>% count(GROUP, name = "n_observations")results_clean %>%  count(SUBJ) %>%  summarise(min = min(n), mean_n = mean(n), max = max(n))
+
+The number of recorded movements per subject ranges from 80 to 180, so the design is unbalanced. This is expected in this type of experiment and does not prevent the ANOVA.
+
+#| label: summary-statsresults_clean %>%  group_by(ORI, DIR) %>%  summarise(    n        = n(),    mean_mt  = mean(MovementTime),    sd_mt    = sd(MovementTime),    mean_nvp = mean(NbVelPeaks),    sd_nvp   = sd(NbVelPeaks),    .groups  = "drop"  )
+
+Movement time and the number of velocity peaks vary across target orientations and movement directions. The ANOVA in the next section will test whether these differences are statistically significant.
