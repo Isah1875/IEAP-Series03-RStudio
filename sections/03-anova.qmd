@@ -1,0 +1,15 @@
+Analysis of variance
+
+Because each subject performed several movements in every condition, the raw rows are not independent observations. The data are therefore aggregated to one mean value per subject and condition, which yields r nrow(subj_means) subject-by-condition means before running the models.
+
+#| label: aggregate-subjectssubj_means <- results_clean %>%  group_by(GROUP, SUBJ, ORI, DIR) %>%  summarise(    mean_mt  = mean(MovementTime),    mean_nvp = mean(NbVelPeaks),    .groups  = "drop"  )glimpse(subj_means)
+
+A mixed ANOVA is fitted for movement time, with GROUP as between-subject factor and ORI and DIR as within-subject factors:
+
+#| label: anova-mtmt_aov <- aov(mean_mt ~ GROUP * ORI * DIR + Error(SUBJ / (ORI * DIR)), data = subj_means)summary(mt_aov)
+
+The same model is fitted for the number of velocity peaks:
+
+#| label: anova-nvpnvp_aov <- aov(mean_nvp ~ GROUP * ORI * DIR + Error(SUBJ / (ORI * DIR)), data = subj_means)summary(nvp_aov)
+
+Each Error: block of the output corresponds to one stratum of the design. The GROUP effect is tested in the Error: SUBJ block; ORI and its interaction with GROUP are tested in the Error: SUBJ:ORI block; DIR and its interaction with GROUP are tested in the Error: SUBJ:DIR block; and the remaining interactions are tested in the Error: SUBJ:ORI:DIR block. An effect is considered statistically significant when its p value, listed under Pr(>F), is below .05.
