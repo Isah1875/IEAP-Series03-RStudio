@@ -44,6 +44,7 @@ This report presents the solution to the Series 03 assignment (**data wrangling 
 {{< include sections/01-data.qmd >}}
 {{< include sections/02-wrangling.qmd >}}
 {{< include sections/03-anova.qmd >}}
+{{< include sections/04-plots.qmd >}}
 
 # Grading checklist
 

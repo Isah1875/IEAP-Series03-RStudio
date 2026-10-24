@@ -1,0 +1,13 @@
+Figures
+
+The figures below display the group means underlying the ANOVAs, with the target orientation on the horizontal axis (ordered from west to east) and one panel per movement direction.
+
+#| label: cell-meanscell_means <- subj_means %>%  group_by(GROUP, ORI, DIR) %>%  summarise(    mean_mt  = mean(mean_mt),    mean_nvp = mean(mean_nvp),    .groups  = "drop"  ) %>%  mutate(ORI = fct_relevel(ORI, "W", "NW", "N", "NE", "E"))
+
+#| label: fig-mt#| fig-cap: "Mean movement time by target orientation, movement direction and group."ggplot(cell_means, aes(x = ORI, y = mean_mt, group = GROUP, color = GROUP)) +  geom_line(linewidth = 1) +  geom_point(size = 2) +  facet_wrap(~ DIR) +  labs(    x = "Target orientation",    y = "Mean movement time (s)",    color = "Group"  ) +  theme_minimal()
+
+The movement time figure mirrors the ANOVA results: the pp group lies far above the two other groups in both panels, and the gap between outward and inward movements is visibly larger for pp than for the ap and cp groups, which explains the significant GROUP × DIR interaction. The target orientation has little visible influence on movement time, consistent with its non-significant main effect.
+
+#| label: fig-nvp#| fig-cap: "Mean number of velocity peaks by target orientation, movement direction and group."ggplot(cell_means, aes(x = ORI, y = mean_nvp, group = GROUP, color = GROUP)) +  geom_line(linewidth = 1) +  geom_point(size = 2) +  facet_wrap(~ DIR) +  labs(    x = "Target orientation",    y = "Mean number of velocity peaks",    color = "Group"  ) +  theme_minimal()
+
+The velocity peak figure shows the same clear group separation, together with a visible orientation effect: within each group, the number of peaks varies across target orientations and reaches its maximum around the N orientation. This matches the significant main effect of ORI and the significant GROUP × ORI interaction found for this variable.
